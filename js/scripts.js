@@ -1,43 +1,39 @@
 // Business Logic
-function add(num1, num2) {
-    return num1 + num2;
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min); 
   }
   
-  function subtract(num1, num2) {
-    return num1 - num2;
-  }
-  
-  function multiply(num1, num2) {
-    return num1 * num2;
-  }
-  
-  function divide(num1, num2) {
-    return num1 / num2;
-  }
-  
-  // User Interface Logic
-  function handleCalculation(event) {
+// User Interface Logic
+function createCharacter(event) {
     event.preventDefault();
-    const number1 = parseInt(document.querySelector("input#input1").value);
-    const number2 = parseInt(document.querySelector("input#input2").value);
-    const operator = document.querySelector("input[name='operator']:checked").value;
-  
+    //const name = document.querySelector("input#name");
+    const classOption = document.getElementById("class").value;
+
     let result;
-    if (operator === "add") {
-      result = add(number1, number2);
-    } else if (operator === "subtract") {
-      result = subtract(number1, number2);
-    } else if (operator === "multiply") {
-      result = multiply(number1, number2);
-    } else if (operator === "divide") {
-      result = divide(number1, number2);
+    min = 5;
+    max = 10;
+    p
+    if (classOption === "Warrior") {
+        const stat = "Strength:  " + getRandomIntInclusive(min,max) + "\n"+ "Intelligence:  " + getRandomIntInclusive(min-3,max-3) + "\n" + "Dexterity:  " + getRandomIntInclusive(min-2,max-2) + "\n" + "Swiftness:  " + getRandomIntInclusive(min-1,max-1) + "\n" + "Defense:  " + getRandomIntInclusive(min,max);
+        result = stat;
+    } else if (classOption === "Mage") {
+        const stat = "Strength:  " + getRandomIntInclusive(min-3,max-3) + "\n"+ "Intelligence:  " + getRandomIntInclusive(min,max) + "\n" + "Dexterity:  " + getRandomIntInclusive(min-1,max-1) + "\n" + "Swiftness:  " + getRandomIntInclusive(min-2,max-2) + "\n" + "Defense:  " + getRandomIntInclusive(min,max);
+        result = stat;
+    } else if (classOption === "Hunter") {
+        const stat = "Strength:  " + getRandomIntInclusive(min-1,max-1) + "\n"+ "Intelligence:  " + getRandomIntInclusive(min-2,max-2) + "\n" + "Dexterity:  " + getRandomIntInclusive(min-3,max-3) + "\n" + "Swiftness:  " + getRandomIntInclusive(min,max) + "\n" + "Defense:  " + getRandomIntInclusive(min,max);
+        result = stat;
+    } else if (classOption === "Assassin") {
+        const stat = "Strength:  " + getRandomIntInclusive(min-3,max-3) + "\n"+ "Intelligence:  " + getRandomIntInclusive(min-2,max-2) + "\n" + "Dexterity:  " + getRandomIntInclusive(min,max) + "\n" + "Swiftness:  " + getRandomIntInclusive(min-1,max-1) + "\n" + "Defense:  " + getRandomIntInclusive(min,max);
+        result = stat;
     }
-    
+
     document.getElementById("output").innerText = result;
     // the code to get and process form values will go here!
-  }
-  
-  window.addEventListener("load", function() {
-    const form = document.getElementById("calculator");
-    form.addEventListener("submit", handleCalculation);
-  });
+}
+
+window.addEventListener("load", function () {
+    const form = document.getElementById("character");
+    form.addEventListener("submit", createCharacter);
+});
