@@ -6,15 +6,26 @@ function getRandomIntInclusive(min, max) {
   }
   
 // User Interface Logic
+function hideResult(){
+    document.getElementById("result").setAttribute("class", "hidden");
+}
+
+window.onload = function () {
+    hideResult();
+}
+
 function createCharacter(event) {
     event.preventDefault();
-    //const name = document.querySelector("input#name");
     const classOption = document.getElementById("class").value;
 
+    //name generator
+    document.querySelector("span#charName").innerText = document.getElementById("nameInput").value;
+
+    //stat generator
     let result;
     min = 5;
     max = 10;
-    p
+
     if (classOption === "Warrior") {
         const stat = "Strength:  " + getRandomIntInclusive(min,max) + "\n"+ "Intelligence:  " + getRandomIntInclusive(min-3,max-3) + "\n" + "Dexterity:  " + getRandomIntInclusive(min-2,max-2) + "\n" + "Swiftness:  " + getRandomIntInclusive(min-1,max-1) + "\n" + "Defense:  " + getRandomIntInclusive(min,max);
         result = stat;
@@ -30,6 +41,7 @@ function createCharacter(event) {
     }
 
     document.getElementById("output").innerText = result;
+    document.querySelector("div#result").removeAttribute("class");
     // the code to get and process form values will go here!
 }
 
