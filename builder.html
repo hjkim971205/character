@@ -10,8 +10,9 @@
   <form id="character">
     <label for="name">Name of character</label>
     <input id="name" type="text">
-
+    <br>
     <label>
+      <p><strong>Choose your sex</strong></p>
       <input type="radio" name="sex" value="male">
       Male
     </label>
@@ -19,7 +20,26 @@
       <input type="radio" name="sex" value="female">
       Female
     </label>
-    <button type="submit" class="btn">Go!</button>
+    <br> 
+    <p><strong>Customize your look</strong></p>
+    <label for="hair">
+      Choose your hair color
+      <input id="hair" type="color">
+    </label>
+    <br>
+    <label for="skin">
+        Choose your skin color
+        <input id="skin" type="color">
+      </label>
+    <br>
+    <p><strong>Choose your class</strong></p>
+    <select id="class">
+        <option>Warrior</option>
+        <option>Mage</option>
+        <option>Hunter</option>
+        <option>Assassin</option>
+      </select>
+    <button type="submit" class="btn">Create!</button>
   </form>
 
   <h2>Results</h2>
